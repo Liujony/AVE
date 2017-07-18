@@ -1,0 +1,85 @@
+.main-box{
+	position: relative;
+	width: 70%;
+	height: 400px;
+	margin: 50px auto;
+}
+.list-box div{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+}
+.list-box div ul{
+	margin-top: 30px;
+}
+.list-box div li{
+	margin-top: 7px;
+	color: #616060;
+}
+.list-box div:nth-child(2){
+	left: 18%;
+}
+.list-box div:nth-child(3){
+	left: 36%;
+}
+.list-box div:nth-child(4){
+	left: 54%;
+}
+.list-box div:nth-child(5){
+	left: 72%;
+}
+.left-brand,
+.right-brand{
+	height: 200px;
+	width: 48%;
+	margin-top: 220px;
+}
+.left-brand{
+	float: left;
+	color: white;
+	background-color: black;
+}
+.left-brand>div{
+	position: relative;
+	top: 30%;
+	font-size: 2em;
+	text-align: center;
+}
+.right-brand{
+	float: right;
+	background-color: #9BE6F6;
+}
+.right-brand>i{
+	color: white;
+	float: left;
+	margin-left: 15%;
+	margin-top: 18%;
+}
+.homepage-footer{
+	height: 40px;
+	background-color: black;
+}
+.footer-center{
+	height: 100%;
+	width: 90%;
+	margin: 0 auto;
+}
+.copyright,
+.designer,
+.developer{
+	font-size: .9em;
+	font-weight: 780; 
+	display: inline-block;
+	line-height: 40px;
+	color: #999999;
+}
+.copyright{
+	margin-top: -5px;
+}
+.designer,
+.developer{
+	float: right;
+}
+.designer{
+	margin-right: 30px;
+}

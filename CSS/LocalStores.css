@@ -1,0 +1,138 @@
+.backGround{
+	position: relative;
+	height: 280px;
+	text-align: center;
+	background-color: #F8F8F8;
+	background-image: url(../Photo/1_12.PNG);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.dark{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.6);
+}
+.backGround .bigWord{
+	position: relative;
+	top: 30%;
+	line-height: 50px;
+	font-size: 2em;
+	color: white;
+}
+.localstores{
+	background-color: #FFFFFF;
+}
+.local-box{
+	position: relative;
+	width: 80%;
+	margin: 20px auto;
+}
+.local-box{
+	font-weight: 100;
+}
+.local-1,
+.local-2,
+.local-3{
+	height: 230px;
+}
+.local-1{
+	position: absolute;
+	width: 30%;
+	top: 0;
+	left: 0;
+}
+.local-2{
+	margin: 0 35%;
+}
+.local-3{
+	position: absolute;
+	width: 30%;
+	top: 0;
+	right: 0;
+}
+.local-1>div,
+.local-1>div>strong,
+.local-2>div,
+.local-2>div>strong,
+.local-3>div,
+.local-3>div>strong{
+	font-size: 13px;
+	line-height: 1.1em;
+	margin-top: 20px;
+	color: #8E8C8C;
+}
+.local-box a{
+	position: absolute;
+	bottom: 0;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: black;
+	border: 2px solid #737373;
+	background-color: rgba(0,0,0,0);
+}
+.local-box a:hover{
+	color: #FFFFFF;
+	border-color: #00C8C8;
+	background-color: #00C8C8;
+}
+.local-box a.on-click{
+	color: #FFFFFF !important;
+	border-color: #00C8C8;
+	background-color: #00C8C8;
+}
+
+.map-box{
+	height: 400px;
+	width: 100%;
+	background-color: #F8F8F8;
+	/*display: ;*/
+}
+.map-box .map-box-2,
+.map-box .map-box-3{
+	display: none;
+}
+.map-box .map{
+	height: 400px;
+	width: 60%;
+	display: inline-block;
+	float: left;
+	background-image: url(../Photo/1_17.png);
+	background-color: #F8F8F8;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.map-box .local-information{
+	display: inline-block;
+	float: right;
+	height: 400px;
+	width: 32%;
+	font-size: 14px;
+	padding-right: 70px;
+	padding-top: 30px;
+}
+.map-box .local-information>div{
+	margin-top: 10px;
+}
+.map-box .stores-information>i{
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 25px;
+	border-radius: 25px;
+	color: #FFFFFF;
+	background-color: #727272;
+}
+.map-box .stores-information{
+	line-height: 30px;
+}
+.map-box .stores-information>div>i{
+	margin-right: 10px;
+}

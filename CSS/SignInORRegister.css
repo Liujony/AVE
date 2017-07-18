@@ -1,0 +1,86 @@
+.backGround{
+	position: relative;
+	height: 280px;
+	text-align: center;
+	background-color: #F8F8F8;
+	background-image: url(../Photo/1_12.PNG);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.dark{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.6);
+}
+.backGround .bigWord{
+	position: relative;
+	top: 30%;
+	line-height: 50px;
+	color: white;
+}
+
+
+
+.homepage-main-body{
+	position: relative;
+	width: 70%;
+	margin: 70px auto;
+}
+.homepage-main-body .SignIn,
+.homepage-main-body .Register{
+	display: inline-block;
+}
+.homepage-main-body .SignIn,
+.homepage-main-body .Register{
+	width: 47%;
+}
+.homepage-main-body .SignIn{
+	position: absolute;
+	top: 0;
+}
+.homepage-main-body .Register{
+	margin-left: 50%;
+	padding-left: 4%;
+	border-left: 1px solid #EEEEEE; 
+}
+.homepage-main-body input.input{
+	width: 95%;height: 20px;
+	margin-top: 30px;
+	padding: 5px;
+	border: 1px solid #E7E7E7; 
+	background-color: #FFFFFF;
+}
+.homepage-main-body input.button{
+	cursor: pointer;
+	padding: 15px 25px;
+	margin-top: 30px;
+	border: 2px solid #737373;
+	background-color: #FFFFFF
+}
+.homepage-main-body input.button:hover{
+	color: #FFFFFF;
+	border: 2px solid #00C8C8;
+	background-color: #00C8C8;
+	transition: .2s;
+}
+.homepage-main-body .SignIn a{
+	display: inline-block;
+	margin-left: 190px;
+	font-size: .7em;
+	color: #42D0D0;
+}
+.homepage-main-body input.checkbox{
+	color: #979595;
+	font-size: .5em;
+}
+.homepage-main-body .f-text{
+	display: inline-block;
+	margin-top:30px;
+	color: #979595;
+	font-size: .7em;
+}

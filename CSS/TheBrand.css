@@ -1,0 +1,96 @@
+.backGround{
+	position: relative;
+	height: 280px;
+	text-align: center;
+	background-color: #F8F8F8;
+	background-image: url(../Photo/1_12.PNG);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.dark{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,.6);
+}
+.backGround .bigWord{
+	position: relative;
+	top: 30%;
+	line-height: 50px;
+	font-size: 2em;
+	color: white;
+}
+.thebrand{
+	background-color: #FFFFFF;
+}
+.thebrand .thebrand-main{
+	height: 850px;
+	width: 60%;
+	margin: 70px auto;
+}
+.thebrand-main h4{
+	font-size: 15px;
+}
+.information-left,
+.information-right{
+	width: 47%;
+}
+.information-left{
+	float: left;
+}
+.information-right{
+	float: right;
+}
+.information-left>div,
+.information-right>div{
+	width: 100%;
+	margin-top: 30px;
+}
+.information-left .item-1,
+.information-left .item-2,
+.information-right .item-5,
+.information-right .item-7{
+	background-color: #FFFFFF;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.information-left .item-1,
+.information-left .item-2,
+.information-right .item-5{
+	height: 300px;
+}
+.information-right .item-7{
+	height: 80px;
+}
+.information-left .item-1{
+	background-image: url(../Photo/1_13.PNG);
+}
+.information-left .item-2{
+	background-image: url(../Photo/1_14.PNG);
+	margin-top: 48px;
+}
+.information-right .item-4{
+	margin-top: 100px;
+}
+.information-right .item-5{
+	background-image: url(../Photo/1_15.PNG);
+}
+.information-right .item-7{
+	background-image: url(../Photo/1_16.PNG);
+}
+.information-left .item-3>div,
+.information-right .item-4>div,
+.information-right .item-6>div{
+	font-size: 13px;
+	margin-top: 15px;
+	color: #8E8C8C;
+}
+.thebrand .thebrand-main a{
+	display: inline;
+	color: #42D0D0;
+}

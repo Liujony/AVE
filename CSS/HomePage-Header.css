@@ -1,0 +1,26 @@
+.homepage-main{
+	position: relative;
+	height: 600px;
+	background-color: #F8F8F8;
+	background-image: url(../Photo/1_11.PNG);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.homepage-main .head-buttom{
+	position: absolute;
+	padding: 10px 15px;
+	bottom: 50px;
+	right: 60px;
+	font-size: .8em;
+	font-weight: 900;
+	color: black;
+	border: 1px solid #737373;
+	background-color: rgba(0,0,0,0);
+	transition: .1s all;
+}
+.homepage-main .head-buttom:hover{
+	background-color: #00C8C8;
+	border: 1px solid #00C8C8;
+	color: white;
+}

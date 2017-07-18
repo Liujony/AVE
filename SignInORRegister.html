@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SignInOrRegister</title>
+	<style>
+		@font-face{
+			font-family: Montserrat;
+			src: url(C:/Users/Administrator/Desktop/html/Font/Montserrat-Regular.ttf)
+		}
+		@font-face{
+			font-family: Yellowtail;
+			src: url(C:/Users/Administrator/Desktop/html/Font/Yellowtail-Regular.otf)
+		}
+		*{
+			padding: 0;
+			margin: 0;
+			font-family: Montserrat;
+		}
+		ol,ul,li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			display: block;
+			color: black;
+		}
+		img{
+			display: block;
+			border: none;
+		}
+		.clearfloat{
+			zoom: 1;
+		}
+		.cleatfloat:after{
+			display: block;
+			clear: both;
+			content: "";
+			height: 0;
+			visibility: hidden;
+		}
+
+		.on-click{
+			color: #55D2D2 !important; 
+		}
+
+		.homepage-main-body{
+			position: relative;
+			width: 70%;
+			margin: 70px auto;
+		}
+		.homepage-main-body .SignIn,
+		.homepage-main-body .Register{
+			display: inline-block;
+		}
+		.homepage-main-body .SignIn,
+		.homepage-main-body .Register{
+			width: 47%;
+		}
+		.homepage-main-body .SignIn{
+			position: absolute;
+			top: 0;
+		}
+		.homepage-main-body .Register{
+			margin-left: 50%;
+			padding-left: 4%;
+			border-left: 1px solid #EEEEEE; 
+		}
+		.homepage-main-body input.input{
+			width: 95%;height: 20px;
+			margin-top: 30px;
+			padding: 5px;
+			border: 1px solid #E7E7E7; 
+			background-color: #FFFFFF;
+		}
+		.homepage-main-body input.button{
+			cursor: pointer;
+			padding: 15px 25px;
+			margin-top: 30px;
+			border: 2px solid #737373;
+			background-color: #FFFFFF
+		}
+		.homepage-main-body input.button:hover{
+			color: #FFFFFF;
+			border: 2px solid #00C8C8;
+			background-color: #00C8C8;
+			transition: .2s;
+		}
+		.homepage-main-body .SignIn a{
+			display: inline-block;
+			margin-left: 190px;
+			font-size: .7em;
+			color: #42D0D0;
+		}
+		.homepage-main-body input.checkbox{
+			color: #979595;
+			font-size: .5em;
+		}
+		.homepage-main-body .f-text{
+			display: inline-block;
+			margin-top:30px;
+			color: #979595;
+			font-size: .7em;
+	</style>
+</head>
+<body>
+	<div class="homepage-main-body">
+		<div class="SignIn">
+			<form action="main.php?act=signin" method="post">
+				<div>Sign In</div>
+				<input class="input" type="text" name="email" placeholder="Your Email..">
+				<input class="input" type="password" name="password" placeholder="Your password..">
+				<input class="button" type="submit" value="SIGN IN">
+				<a href="javascript:;">Forget your password <i class="icon-arrow-right"></i></a>
+			</form>
+			
+		</div>
+		<div class="Register">
+			<form action="main.php?act=register" method="post">
+				<div>Register</div>
+				<input class="input" type="text" name="email" placeholder="Your Email..">
+				<input class="input" type="password" name="password" placeholder="Your password..">
+				<input class="input" type="password" name="confirmpassword" placeholder="Comfirm password..">
+				<input class="checkbox" type="checkbox"> <div class="f-text" style="">Sign up for exclusive, discounts, new arrivals, contests and more!</div>
+				<input class="button" type="submit" value="CREATE ACCOUNT">
+				<div class="f-text" style="width: 200px;margin-left: 50px;">By Clicking 'Create Account', you agree to our <a href="javascript:;" style="display: inline-block;color: #42D0D0;">Privacy Policy <i class="icon-arrow-right"></i></a></div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function getClassName(TagName,ClassName,dom=document){
+			var box = dom.getElementsByTagName(TagName);
+			var r_box = new Array();
+			var index = 0;
+			for(var i=0;i<box.length;i++){
+				// console.log(box[i].className.indexOf(ClassName),ClassName)
+				if(box[i].className.indexOf(ClassName)>=0){
+					r_box[index] = box[i];
+					index++;
+				}
+			}
+			// console.log(r_box);
+			if(r_box.length>0){
+				return r_box;
+			}else{
+				return false;
+			}
+			
+		}
+		window.onload=function(){
+
+			var signin_box = getClassName('div','SignIn'),
+				register_box = getClassName('div','Register'),
+				signin_b = getClassName('input','button',signin_box[0]),
+				register_b = getClassName('input','button',register_box[0]),
+				signin_in = getClassName('input','input',signin_box[0]),
+				register_in = getClassName('input','input',register_box[0]),
+				Si1 = false, Si2 = false, Re1 = false, Re2 = false , Re3 = false;
+
+
+			inputStyle(signin_in);
+			inputStyle(register_in);
+			// console.log(register_in[0].name)
+			signin_in[0].onblur=function(){
+				this.style.borderColor='#E7E7E7';
+				Si1=inputConfirm(this);
+			}
+			signin_in[1].onblur=function(){
+				this.style.borderColor='#E7E7E7';
+				Si2=inputConfirm(this);
+			}
+			register_in[0].onblur=function(){
+				this.style.borderColor='#E7E7E7';
+				Re1=inputConfirm(register_in[0]);
+			}
+			register_in[1].onblur=function(){
+				this.style.borderColor='#E7E7E7';
+				Re2=inputConfirm(register_in[1]);
+			}
+			register_in[2].onblur=function(){
+				this.style.borderColor='#E7E7E7';
+				Re3=inputConfirm(register_in[2],register_in[1]);
+			}
+			signin_b[0].onclick=function(){
+				if(!(Si1&&Si2)){
+					return false;
+				}
+			}
+			register_b[0].onclick=function(){
+				if(!(Re1&&Re2&&Re3)){
+					return false;
+				}
+			}
+		}
+		function inputStyle(box){
+			for(var i=0;i<box.length;i++){
+				(function(i){
+					box[i].onfocus=function(){
+						box[i].style.borderColor='#838383';
+						box[i].style.backgroundColor='#FFFFFF';
+					}
+					box[i].onblur=function(){
+						box[i].style.borderColor='#E7E7E7';
+					}
+				})(i);
+			} 
+		}
+		function inputConfirm(box,boxPa=null){
+			if(box.value==''){
+				box.style.backgroundColor='#FCF6F7';
+				box.style.borderColor='#BB5465';
+				box.placeholder='This can not be empty..';
+				return false;
+			}else if(boxPa){
+				if(confirmpasswordConfirm(box,boxPa)){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				var funName=window[box.name+'Confirm'];
+				if(funName(box)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		}
+		function emailConfirm(box){
+			var reg=/([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.])+(\.\S)+/g;
+			if(reg.test(box.value)){
+				return true;
+			}else{
+				box.value='';
+				box.style.backgroundColor='#FCF6F7';
+				box.style.borderColor='#BB5465';
+				box.placeholder='The e-mail is illegal..';
+				return false;
+			}
+		}
+		function passwordConfirm(box){
+			var reg=/\S{6,}/gi;
+			if(reg.test(box.value)){
+				return true;
+			}else{
+				box.value='';
+				box.style.backgroundColor='#FCF6F7';
+				box.style.borderColor='#BB5465';
+				box.placeholder='The password is illegal..';
+				return false;
+			}
+		}
+		function confirmpasswordConfirm(box,boxPa){
+			var reg=new RegExp('^'+boxPa.value+'$','g');
+			if(reg.test(box.value)){
+				return true;
+			}else{
+				box.value='';
+				box.style.backgroundColor='#FCF6F7';
+				box.style.borderColor='#BB5465';
+				box.placeholder='The password is not the same..';
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
