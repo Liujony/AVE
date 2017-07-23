@@ -19,12 +19,17 @@
 				if(md5($_POST['password'])===$row['password']){
 					$_SESSION['user']['email']=$_POST['email'];
 					echo "<script>
-							alert('Sign In succeed!');
+							
 							location.href='SignInORRegister.html';
+							alert('Sign In succeed!');
 						</script>";
+					$arr = array('a'=>1,'b'=>2,'c'=>3);
+					echo json_encode($arr);
+					echo 'ss';
 				}else{
 					echo "
 						<script>
+							
 							alert('Your password was wrong!');
 							location.href='SignInORRegister.html';
 						</script>";

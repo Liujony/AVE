@@ -105,30 +105,53 @@
 <body>
 	<div class="homepage-main-body">
 		<div class="SignIn">
-			<form action="main.php?act=signin" method="post">
+			<form>
 				<div>Sign In</div>
-				<input class="input" type="text" name="email" placeholder="Your Email..">
+				<input class="input" type="text" name="email" placeholder="Your Email.....">
 				<input class="input" type="password" name="password" placeholder="Your password..">
-				<input class="button" type="submit" value="SIGN IN">
+				<input class="button" type="button" value="SIGN IN">
 				<a href="javascript:;">Forget your password <i class="icon-arrow-right"></i></a>
 			</form>
-			
 		</div>
 		<div class="Register">
-			<form action="main.php?act=register" method="post">
+			<form>
 				<div>Register</div>
 				<input class="input" type="text" name="email" placeholder="Your Email..">
 				<input class="input" type="password" name="password" placeholder="Your password..">
 				<input class="input" type="password" name="confirmpassword" placeholder="Comfirm password..">
 				<input class="checkbox" type="checkbox"> <div class="f-text" style="">Sign up for exclusive, discounts, new arrivals, contests and more!</div>
-				<input class="button" type="submit" value="CREATE ACCOUNT">
+				<input class="button" type="button" value="CREATE ACCOUNT">
 				<div class="f-text" style="width: 200px;margin-left: 50px;">By Clicking 'Create Account', you agree to our <a href="javascript:;" style="display: inline-block;color: #42D0D0;">Privacy Policy <i class="icon-arrow-right"></i></a></div>
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="signinorregister.js"></script>
 	<script>
+		$(function(){
+			var s_b=$(".SignIn .button");
+			var s_e=$(".SignIn .input[name='email']");
+			var s_p=$(".SignIn .input[name='password']");
+			s_b.click(function(){
+				var e_reg = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.])+(\.\S)+/;
+				var p_reg = /^\S{6,}/;
+				console.log(s_p.attr('placeholder'))
+				if(e_reg.test(s_e.val()),p_reg.test(s_p.val())){
+					SignIn(s_e.val(),s_p.val());
+				}
+			});
+		});
+		function SignIn(email,password){
+			$url='main.php?action=signin';
+			$.post($url,{
+				email:email,
+				password:password
+			},function(){
+				
+			})
+		}
+	</script>
+	<!-- <script type="text/javascript" src="signinorregister.js"></script> -->
+	<!-- <script>
 		function getClassName(TagName,ClassName,dom=document){
 			var box = dom.getElementsByTagName(TagName);
 			var r_box = new Array();
@@ -265,6 +288,6 @@
 				return false;
 			}
 		}
-	</script>
+	</script> -->
 </body>
 </html>
