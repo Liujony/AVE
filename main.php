@@ -10,36 +10,24 @@
 	if(!$connect){
 		die("Error : ".mysqli_connect_errno()." : ".mysqli_connect_error());
 	}
+	$arr = array('status'=>false,'error'=>null,'message'=>null);
 	if($_POST['email']&&$_POST['password']){
 		if($_GET['act']==='signin'){
 			$sql="SELECT email,password FROM usernew WHERE email='".$_POST['email']."';";
 			$result=mysqli_query($connect,$sql);
-			if($result){
+			if($result->num_rows){
 				$row=mysqli_fetch_assoc($result);
 				if(md5($_POST['password'])===$row['password']){
 					$_SESSION['user']['email']=$_POST['email'];
-					echo "<script>
-							
-							location.href='SignInORRegister.html';
-							alert('Sign In succeed!');
-						</script>";
-					$arr = array('a'=>1,'b'=>2,'c'=>3);
+					$arr['status']=true;
 					echo json_encode($arr);
-					echo 'ss';
 				}else{
-					echo "
-						<script>
-							
-							alert('Your password was wrong!');
-							location.href='SignInORRegister.html';
-						</script>";
+					$arr['status']=false; $arr['error']="password"; $arr['message']="Your password was wrong...";
+					echo json_encode($arr);
 				}
 			}else{
-				echo "
-					<script>
-						alert('This email isn't exist');
-						location.href='SignInORRegister.html';
-					</script>";
+				$arr['status']=false; $arr['error']="email"; $arr['message']="This email isn't exist...";
+				echo json_encode($arr);
 			}
 		}elseif($_GET['act']==='register'){
 			$sql="INSERT usernew(email,password,datetime) VALUE('".$_POST['email']."','".md5($_POST['password'])."'".",now());";

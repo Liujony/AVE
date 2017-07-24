@@ -134,20 +134,44 @@
 			s_b.click(function(){
 				var e_reg = /^([a-zA-Z0-9_\-\.])+@([a-zA-Z0-9_\-\.])+(\.\S)+/;
 				var p_reg = /^\S{6,}/;
-				console.log(s_p.attr('placeholder'))
 				if(e_reg.test(s_e.val()),p_reg.test(s_p.val())){
 					SignIn(s_e.val(),s_p.val());
 				}
 			});
 		});
-		function SignIn(email,password){
-			$url='main.php?action=signin';
-			$.post($url,{
-				email:email,
-				password:password
-			},function(){
-				
-			})
+		function SignIn(Semail,Spassword){
+			var url='main.php?act=signin';
+			$.post(url,{
+				email:Semail,
+				password:Spassword
+			},function(data){
+				var msg=eval('('+data+')');
+				if(msg.status){
+					console.log("succeed");
+				}else{
+					switch(msg.error){
+						case 'password':
+							var s_p=$(".SignIn .input[name='password']");
+							s_p.css({
+								"background-color":'#FCF6F7',
+								"border-color":'#BB5465'
+							});
+							s_p.val("");
+							s_p.attr("placeholder",msg.message);
+							break;
+
+						case 'email':
+							var s_e=$(".SignIn .input[name='email']");
+							s_e.css({
+								"background-color":'#FCF6F7',
+								"border-color":'#BB5465'
+							});
+							s_e.val("");
+							s_e.attr("placeholder",msg.message);
+							break;
+					}
+				}
+			});
 		}
 	</script>
 	<!-- <script type="text/javascript" src="signinorregister.js"></script> -->
