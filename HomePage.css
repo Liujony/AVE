@@ -1,0 +1,226 @@
+		/**********************
+				 Header
+		**********************/
+.homepage-main{
+	position: relative;
+	height: 600px;
+	background-color: #F8F8F8;
+	background-image: url(../Photo/1_11.PNG);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.homepage-main .head-buttom{
+	position: absolute;
+	padding: 10px 15px;
+	bottom: 50px;
+	right: 60px;
+	font-size: 14px;
+	color: black;
+	border: 2px solid #737373;
+	background-color: rgba(0,0,0,0);
+	transition: .1s all;
+}
+.homepage-main .head-buttom:hover{
+	background-color: #00C8C8;
+	border: 2px solid #00C8C8;
+	color: white;
+}
+
+		/**********************
+				  Main
+		**********************/
+.homepage-content{
+	border-top: 1px solid #DDD7D7;
+	width: 80%;
+	margin: 50px auto;
+}
+.content-list{
+	font-size: 13px;
+	display: block;
+	margin: 40px 0;
+}
+.content-list li{
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.content-list li:hover{
+	color: #55D2D2;
+}
+.item-left .item-1,
+.item-left .item-2,
+.item-right .item-5,
+.item-right .item-6,
+.item-left .item-3,
+.item-right .item-4{
+	position: relative;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: #F8F8F8;
+}
+.item-left .item-1,
+.item-left .item-2,
+.item-right .item-5,
+.item-right .item-6{
+	width: 48%;
+	height: 290px;
+}
+.item-left .item-3,
+.item-right .item-4{
+	width: 100%;
+	height: 360px;
+}
+.item-left .item-1,
+.item-left .item-3,
+.item-right .item-4,
+.item-right .item-5{
+	float: left;
+}
+.item-left .item-2,
+.item-box .item-right,
+.item-right .item-6{
+	float: right;
+}
+.item-box .item-left{
+	display: inline-block;
+	left: 0;
+	width: 49%;
+}
+.item-left .item-1{
+	background-image: url(../Photo/1_1.jpg);
+}
+.item-left .item-2{
+	float: right;
+	background-image: url(../Photo/1_2.jpg);
+}
+.item-left .item-3{
+	margin-top: 20px;
+	background-image: url(../Photo/1_4.jpg);
+}
+.item-box .item-right{
+	float: right;
+	width: 49%;
+}
+.item-right .item-4{
+	margin-bottom: 20px;
+	background-image: url(../Photo/1_3.jpg);
+}
+.item-right .item-5{
+	background-image: url(../Photo/1_10.jpg);
+}
+.item-right .item-6{
+	float: right;
+	background-image: url(../Photo/1_5.jpg);
+}
+.item-left .item-1:hover,
+.item-left .item-2:hover,
+.item-left .item-3:hover,
+.item-right .item-4:hover,
+.item-right .item-5:hover,
+.item-right .item-6:hover{
+	box-shadow: 0 3px 12px #C6C2C2;
+}
+
+.item-box .information-box{
+	position: absolute;
+	width: 100%;
+	height: 150px;
+	background-color: white;
+	bottom: -150px;
+	text-align: center;
+	box-shadow: 0 3px 12px #C6C2C2;
+	z-index: 10;
+	display: none;
+}
+.item-box .information-box .title{
+	font-size: 12px;
+	margin-top: 10px;
+}
+.item-box .information-box .information{
+	font-size: 13px;
+	color: #646161;
+	width: 80%;
+	margin: 10px auto;
+}
+.item-box .information-box .i-box a{
+	display: inline-block;
+	width: 25px;height: 25px;
+	line-height: 25px;
+	margin: 0 5px;
+	border-radius: 100px;
+	background-color: #727272;
+	color: #FFFFFF;
+}
+.item-box .information-box .i-box a:hover{
+	background-color: #00C8C8;
+}
+
+.homepage-content-second{
+	position: relative;
+	width: 100%;
+	margin: 100px 0;
+}
+.item-box-2 .item-1,
+.item-box-2 .item-2,
+.item-box-2 .item-3{
+	height: 350px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.item-box-2 .item-1{
+	position: absolute;
+	top: 1px;
+	left: 0;
+	width: 32%;
+	background-image: url(../Photo/1_7.PNG);
+}
+.item-box-2 .item-2{
+	margin: 0 33%;
+	background-image: url(../Photo/1_8.PNG);
+}
+.item-box-2 .item-3{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 32%;
+	background-image: url(../Photo/1_9.PNG);
+}
+
+
+
+.introduction{
+	float: right;
+	width: 200px;
+	color: #B8B8B8;
+	text-align: right;
+	margin-top: 5%;
+	margin-right: 20px;
+	line-height: 20px;
+}
+.introduction div{
+	font-size: 13px;
+}
+.introduction h2{
+	font-size: 30px;
+	font-weight: 100;
+	color: black;
+	margin: 20px 0;
+}
+.introduction a{
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: black;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid #737373;
+	transition: .1s all;
+}
+.introduction a:hover{
+	color: white;
+	background-color: #00C8C8;
+	border-color: #00C8C8;
+}

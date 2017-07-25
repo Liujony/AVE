@@ -7,7 +7,12 @@
 	if(!$connect){
 		die("Error : ".mysqli_connect_errno()." : ".mysqli_connect_error());
 	}
-	$sql="INSERT usernew(email,password,datetime) value('2240957223@qq.com','".md5('qw123123')."',now());";
+	$sql="SELECT email,password FROM usernew where email='224097223@qq.com';";
 	$result=mysqli_query($connect,$sql);
- 	echo mysqli_errno($connect);
+	if($result->num_rows){
+		echo "ss";
+	}else{
+		echo "aa";
+	}
+ 	// echo mysqli_errno($connect);
  ?>

@@ -5,11 +5,11 @@
 	<style>
 		@font-face{
 			font-family: Montserrat;
-			src: url(C:/Users/Administrator/Desktop/html/Font/Montserrat-Regular.ttf)
+			src: url(Font/Montserrat-Regular.ttf)
 		}
 		@font-face{
 			font-family: Yellowtail;
-			src: url(C:/Users/Administrator/Desktop/html/Font/Yellowtail-Regular.otf)
+			src: url(Font/Yellowtail-Regular.otf)
 		}
 		*{
 			padding: 0;
@@ -127,6 +127,7 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.js"></script>
 	<script type="text/javascript" src="signinorregister.js"></script>
 	<script>
 		function getClassName(TagName,ClassName,dom=document){
@@ -149,7 +150,7 @@
 			
 		}
 		window.onload=function(){
-
+			console.log($.cookie("ave_email"))
 			var signin_box = getClassName('div','SignIn'),
 				register_box = getClassName('div','Register'),
 				signin_b = getClassName('input','button',signin_box[0]),
@@ -158,7 +159,10 @@
 				register_in = getClassName('input','input',register_box[0]),
 				Si1 = false, Si2 = false, Re1 = false, Re2 = false , Re3 = false;
 
-
+			var date=new Date();
+			var ctime=date.getTime()+1000*30;
+			date.setTime(ctime);
+			$.cookie("password","sss",{expires:date});
 			inputStyle(signin_in);
 			inputStyle(register_in);
 			// console.log(register_in[0].name)
