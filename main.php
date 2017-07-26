@@ -10,6 +10,7 @@
 	if(!$connect){
 		die("Error : ".mysqli_connect_errno()." : ".mysqli_connect_error());
 	}
+	// $_SESSION['user']=null;
 	$arr = array('status'=>false,'error'=>null,'message'=>null);
 
 	if($_GET['act']){
@@ -33,10 +34,7 @@
 						echo json_encode($arr);
 					}
 				}else{
-					echo "
-						<script>
-							location.href='SignInORRegister.html';
-						</script>";
+					header('Location:aveFront.html'); 
 				}
 				break;
 
@@ -53,18 +51,27 @@
 						echo json_encode($arr);
 					}
 				 }else{
-					echo "
-						<script>
-							location.href='SignInORRegister.html';
-						</script>";
+					header('Location:aveFront.html');
 				}
 				break;
 
+			case "checklogin":
+				if($_SESSION['user']!=null){
+					$arr['status']=true;
+					echo json_encode($arr);
+				}else{
+					$arr['status']=false;
+					echo json_encode($arr);
+				}
+				break;	
+
+			case "logout":
+				$_SESSION['user']=null;
+				header('Location:aveFront.html');
+				break;
+
 			default:
-				echo "
-					<script>
-						location.href='SignInORRegister.html';
-					</script>";
+				header('Location:aveFront.html'); 
 				break;
 		}
 	}

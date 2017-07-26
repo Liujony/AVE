@@ -11,6 +11,7 @@
 	margin: 0 auto;
 }
 .currency,
+.logout,
 .register,
 .signIn,
 .shopCar{
@@ -19,6 +20,7 @@
 	line-height: 40px;
 }
 .currency,
+.logout,
 .register,
 .signIn{
 	color: #999999;
@@ -31,11 +33,13 @@
 .shopCar{
 	float: right;
 }
+.logout,
 .register,
 .signIn{
 	margin-left: 15px;
 	transition: .3s all;
 }
+.logout:hover,
 .register:hover,
 .signIn:hover{
 	color: #3DF2ED;

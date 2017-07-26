@@ -129,6 +129,7 @@
 	</div>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.js"></script>
+	<script type="text/javascript" src="JS/signinorregister.js"></script>
 	<script>
 		$(function(){
 			var b_box=$(".homepage-main-body .input");
@@ -175,65 +176,6 @@
 				}
 			});
 		});
-		function SignIn(Semail,Spassword){
-			var url='main.php?act=signin';
-			$.post(url,{
-				email:Semail,
-				password:Spassword
-			},function(data){
-				var msg=eval('('+data+')');
-				if(msg.status){
-					var date=new Date();
-					date.setTime(date.getTime()+60*60*24*1000*30);
-					$.cookie("ave_email",Semail,{expires:date});
-					$.cookie("ave_password",Spassword,{expires:date});
-				}else{
-					switch(msg.error){
-						case 'password':
-							var s_p=$(".SignIn .input[name='password']");
-							ShowMeg(s_p,msg.message);
-							break;
-
-						case 'email':
-							var s_e=$(".SignIn .input[name='email']");
-							ShowMeg(s_e,msg.message);
-							break;
-					}
-				}
-			});
-		}
-		function Register(Remail,Rpassword){
-			var url='main.php?act=register';
-			$.post(url,{
-				email:Remail,
-				password:Rpassword
-			},function(data){
-				var msg=eval('('+data+')');
-				if(msg.status){
-					console.log("succeed");
-				}else{
-					switch(msg.error){
-						case 'password':
-							var r_p=$(".Register .input[name='password']");
-							ShowMeg(r_p,msg.message);
-							break;
-
-						case 'email':
-							var r_e=$(".Register .input[name='email']");
-							ShowMeg(r_e,msg.message);
-							break;
-					}
-				}
-			})
-		}
-		function ShowMeg(box,message){
-			box.css({
-				"background-color":'#FCF6F7',
-				"border-color":'#BB5465'
-			});
-			box.val("");
-			box.attr("placeholder",message);
-		}
 	</script>
 	<!-- <script type="text/javascript" src="signinorregister.js"></script> -->
 </body>
