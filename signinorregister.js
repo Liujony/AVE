@@ -8,8 +8,10 @@ function SignIn(Semail,Spassword){
 		if(msg.status){
 			var date=new Date();
 			date.setTime(date.getTime()+60*60*24*1000*30);
-			$.cookie("ave_email",Semail,{expires:date});
-			$.cookie("ave_password",Spassword,{expires:date});
+			if($('.SignIn input[type=checkbox]').is(":checked")){
+				$.cookie("ave_email",Remail,{expires:date});
+				$.cookie("ave_password",Rpassword,{expires:date});
+			}
 			window.location.replace="aveFront.html";
 		}else{
 			switch(msg.error){
@@ -36,8 +38,6 @@ function Register(Remail,Rpassword){
 		if(msg.status){
 			var date=new Date();
 			date.setTime(date.getTime()+60*60*24*1000*30);
-			$.cookie("ave_email",Remail,{expires:date});
-			$.cookie("ave_password",Rpassword,{expires:date});
 			window.location.replace="aveFront.html";
 		}else{
 			switch(msg.error){

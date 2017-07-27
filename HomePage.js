@@ -41,7 +41,6 @@ function checkLogin(){
 	$.get(url,function(data){
 		var msg=eval('('+data+')');
 		if(msg.status){
-			alert("ss");
 			$(".signIn").css("display","none");
 			$(".register").css("display","none");
 			$(".logout").css("display","inline-block");

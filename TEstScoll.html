@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll</title>
+	<link rel="stylesheet" type="text/css" href="CSS/common.css">
+	<style>
+		html,body{
+			height: 100%;
+			width: 100%;
+			background-color: #FFFFFF;
+			overflow: hidden;
+		}
+		.scroll-b{
+			position: relative;
+			width: 30%;
+			height: 50%;
+			margin: 100px auto;
+			background-color: #FFFFFF;
+		}
+		.box{
+			display: inline-block;
+			position: relative;
+			width: 95%;
+			height: 100%;
+			overflow: hidden;
+			background-color: #AEB7B9;
+		}
+		.meg-b{
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			background-color: #AEB7B9;
+		}
+		.meg{
+			width: 100%;
+			height: 50px;
+			border: 1px solid #AEC7D1;
+			background-color: #AEC7B1;
+			cursor: pointer;
+		}
+		.scr-b{
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			width: 4%;
+			height: 100%;
+			background-color: #D3D8D9;
+		}
+		.scroll{
+			position: absolute;
+			width: 60%;
+			height: 100px;
+			left: 20%;
+			top: 0;
+			border-radius: 50px;
+			background-color: #000000;
+			/*transition: all .5s;*/
+		}
+		a{
+			position: absolute;
+			right: 50px;
+			bottom: 50px;
+			padding: 10px 20px;
+			background-color: rgba(0,0,0,.1);
+			transition: all .1s;
+		}
+		a:hover{
+			background-color: rgba(0,0,0,.2);
+		}
+	</style>
+</head>
+<body>
+	<a href="javascript:;">ADD content</a>
+	<div class="scroll-b">
+		<div class="box">
+			<div class="meg-b">
+				<div class="meg">#1</div>
+				<div class="meg">#2</div>
+				<div class="meg">#3</div>
+				<div class="meg">#4</div>
+				<div class="meg">#5</div>
+				<div class="meg">#6</div>
+				<div class="meg">#7</div>
+				<div class="meg">#8</div>
+				<div class="meg">#9</div>
+				<div class="meg">#10</div>
+				<div class="meg">#11</div>
+				<div class="meg">#12</div>
+				<div class="meg">#13</div>
+			</div>
+		</div>
+		<div class="scr-b">
+			<div class="scroll"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var downY,moveY,scrollY=$(".scroll").position().top;
+			var meg_height=$(".meg:last").position().top+$(".meg:last").outerHeight()-$(".scroll-b").height();
+			var src_innerh=$(".scr-b").innerHeight()-$(".scroll").outerHeight();
+			$(".scroll").mousedown(function(e){
+				downY=e.pageY;
+				scrollY=$(this).position().top;
+				$("html").mousemove(function(e){
+					moveY=e.pageY;
+					src_top=moveY-downY+scrollY;
+					if(src_top>=0&&src_top<=src_innerh){
+						$(".scroll").css("top",src_top+"px");
+						$(".meg-b").css("top",-(src_top/src_innerh*meg_height)+"px");
+					}	
+				});
+				$("html").mouseup(function(){
+					$(this).unbind("mousemove");
+				});
+			});
+			$(".scroll-b")[0].onmousewheel=function(e){
+				if(e.wheelDelta<0){
+					if(scrollY+30<=src_innerh){
+						$(".scroll").css("top",scrollY+30+"px");
+						scrollY=$(".scroll").position().top;
+						$(".meg-b").css("top",-(scrollY/src_innerh*meg_height)+"px");
+					}else{
+						$(".scroll").css("top",src_innerh);
+						scrollY=$(".scroll").position().top;
+						$(".meg-b").css("top",-(scrollY/src_innerh*meg_height)+"px");
+						addnew(scrollY/src_innerh*meg_height);
+						scrollY=$(".scroll").position().top;
+						meg_height=$(".meg:last").position().top+$(".meg:last").outerHeight()-$(".scroll-b").height();
+					}
+				}else{
+					if(scrollY-30>=0){
+						$(".scroll").css("top",scrollY-30+"px");
+						scrollY=$(".scroll").position().top;
+						$(".meg-b").css("top",-(scrollY/src_innerh*meg_height)+"px");
+					}else{
+						$(".scroll").css("top",0);
+						scrollY=$(".scroll").position().top;
+						$(".meg-b").css("top",-(scrollY/src_innerh*meg_height)+"px");
+						
+					}
+				}
+			}
+			$("a").click(function(){
+				$(".meg-b").prepend('<div class="meg">#1</div>');
+				$(".scroll").css("top",0);
+				$(".meg-b").css("top",0);
+				scrollY=$(".scroll").position().top;
+				meg_height=$(".meg:last").position().top+$(".meg:last").outerHeight()-$(".scroll-b").height();
+			});
+		});
+		function addnew(scr_n_t){
+			for(var i=1;i<=5;i++){
+				$(".meg-b").append('<div class="meg">#10</div>');
+			}
+			$(".meg-b").css("top",-(scr_n_t+30)+"px");
+			meg_b_height=$(".meg:last").position().top+$(".meg:last").outerHeight();
+			$(".scroll").css("top",(scr_n_t+30)/meg_b_height*($(".scr-b").innerHeight()-$(".scroll").outerHeight())+"px");
+
+		}
+	</script>
+</body>
+</html>

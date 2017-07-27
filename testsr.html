@@ -154,10 +154,18 @@
 				});
 			});
 			s_b.click(function(){
-				if(e_reg.test(s_e.val())){
-					SignIn(s_e.val(),s_p.val());
+				if(s_e.val()!=""){
+					if(e_reg.test(s_e.val())){
+						if(s_p.val()!=""){
+							SignIn(s_e.val(),s_p.val());
+						}else{
+							ShowMeg(s_p,"Your password can't be empty...");
+						}
+					}else{
+						ShowMeg(s_e,"Your email was wrong...");
+					}
 				}else{
-					ShowMeg(s_e,"Your email was wrong...");
+					ShowMeg(s_e,"Your email can't be empty...");
 				}
 			});
 			r_b.click(function(){
